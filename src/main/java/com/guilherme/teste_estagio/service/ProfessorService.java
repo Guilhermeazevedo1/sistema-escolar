@@ -32,7 +32,7 @@ public class ProfessorService {
                 .orElseThrow(() -> new RuntimeException("Número informado não existe, informe um número existente"));
     }
 
-    public Professor atualizar(Long id, Professor professorAtualizado){
+    public Professor atualizarProfessor(Long id, Professor professorAtualizado){
         Professor professorExistente = professorRepository.findById(id)
                 .orElseThrow(()-> new RuntimeException("Número informado não existe, informe um número existente"));
 
@@ -43,5 +43,13 @@ public class ProfessorService {
         professorExistente.setEscola(professorAtualizado.getEscola());
 
         return professorRepository.save(professorExistente);
+    }
+
+    public void deletarProfessor(Long id){
+        if (professorRepository.existsById(id)){
+            professorRepository.deleteById(id);
+        }else {
+            throw new RuntimeException("Número informado não existe, informe um número válido");
+        }
     }
 }
