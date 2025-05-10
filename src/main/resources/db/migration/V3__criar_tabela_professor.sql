@@ -1,0 +1,7 @@
+CREATE TABLE professor(
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(180) NOT NULL,
+    cpf VARCHAR(14) UNIQUE NOT NULL,
+    senha VARCHAR(50) NOT NULL,
+
+);

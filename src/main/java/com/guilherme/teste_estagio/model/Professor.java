@@ -23,6 +23,8 @@ public class Professor {
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Escola escola;
 
+    //DUVIDA SE AQUI FICA O USUARIO
+
     public Long getId() {
         return id;
     }

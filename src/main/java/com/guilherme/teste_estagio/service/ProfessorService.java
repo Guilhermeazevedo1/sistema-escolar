@@ -1,7 +1,10 @@
 package com.guilherme.teste_estagio.service;
 
+import com.guilherme.teste_estagio.model.Escola;
 import com.guilherme.teste_estagio.model.Professor;
+import com.guilherme.teste_estagio.model.Usuario;
 import com.guilherme.teste_estagio.repository.ProfessorRepository;
+import com.guilherme.teste_estagio.repository.UsuarioRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,17 +13,26 @@ import java.util.List;
 public class ProfessorService {
 
     private final ProfessorRepository professorRepository;
+    private final UsuarioRepository usuarioRepository;
 
-    public ProfessorService(ProfessorRepository professorRepository){
+    public ProfessorService(ProfessorRepository professorRepository, UsuarioRepository usuarioRepository){
         this.professorRepository = professorRepository;
+        this.usuarioRepository = usuarioRepository;
     }
 
-    public Professor salvarProfessor(Professor professor){
+    public Professor salvarProfessor(Professor professor, Escola escola, Usuario usuario){
         if (professor.getNome() == null || professor.getCpf() == null || professor.getSenha() == null
         || professor.getData_nascimento() == null || professor.getEscola() == null){
             throw new RuntimeException("Preencha todos os campos de forma correta");
         }
-        return professorRepository.save(professor);
+        if(professorRepository.existsById(escola.getId())){
+            usuarioRepository.save(usuario);
+            return professorRepository.save(professor);
+        }else {
+            throw new RuntimeException("O número da escola não existe, Coloque um número válido");
+        }
+
+
     }
 
     public List<Professor> listarTodosProfessores(){

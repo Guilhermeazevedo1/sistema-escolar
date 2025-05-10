@@ -1,6 +1,8 @@
 package com.guilherme.teste_estagio.controller;
 
+import com.guilherme.teste_estagio.model.Escola;
 import com.guilherme.teste_estagio.model.Professor;
+import com.guilherme.teste_estagio.model.Usuario;
 import com.guilherme.teste_estagio.service.ProfessorService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,8 +21,10 @@ public class ProfessorController {
     }
 
     @PostMapping
-    public ResponseEntity<Professor> salvarProfessor(@RequestBody Professor professor){
-        return ResponseEntity.status(HttpStatus.CREATED).body(professorService.salvarProfessor(professor));
+    public ResponseEntity<Professor> salvarProfessor(@RequestBody Professor professor, @RequestBody Escola escola,
+                                                     @RequestBody Usuario usuario){
+        return ResponseEntity.status(HttpStatus.CREATED).body(professorService.salvarProfessor(professor, escola,
+                usuario));
     }
 
     @GetMapping("/{id}")

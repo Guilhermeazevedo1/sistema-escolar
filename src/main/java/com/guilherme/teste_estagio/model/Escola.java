@@ -7,6 +7,15 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Escola {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String nome;
+
+    private String endereco;
+
     public Long getId() {
         return id;
     }
@@ -31,11 +40,4 @@ public class Escola {
         this.endereco = endereco;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    private String nome;
-
-    private String endereco;
 }

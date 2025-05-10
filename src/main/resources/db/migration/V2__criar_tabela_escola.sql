@@ -1,0 +1,5 @@
+CREATE TABLE escola(
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(150) NOT NULL,
+    endereco VARCHAR(255) NOT NULL
+);

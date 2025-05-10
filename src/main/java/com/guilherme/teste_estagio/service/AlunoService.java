@@ -47,7 +47,7 @@ public class AlunoService {
         alunoExistente.setNome(alunoAtualizado.getNome());
         alunoExistente.setCpf(alunoAtualizado.getCpf());
         alunoExistente.setData_nascimento(alunoAtualizado.getData_nascimento());
-        alunoExistente.setProfessor(alunoAtualizado.getProfessor());
+        // DUVIDA SE PRECISA TER O PROFESSOR alunoExistente.setProfessor(alunoAtualizado.getProfessor());
 
         return alunoRepository.save(alunoExistente);
     }
