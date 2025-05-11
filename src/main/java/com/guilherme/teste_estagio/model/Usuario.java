@@ -28,6 +28,12 @@ public class Usuario implements UserDetails {
 
     private UsuarioRole role;
 
+    //CONSTRUCTOR
+    public Usuario(String cpf, String senha, UsuarioRole role){
+        this.cpf = cpf;
+        this.senha = senha;
+        this.role = role;
+    }
 
     //GETTERS AND STTERS
 
