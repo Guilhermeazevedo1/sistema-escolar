@@ -4,6 +4,5 @@ CREATE TABLE usuario(
     cpf VARCHAR(14) NOT NULL UNIQUE,
     senha VARCHAR(50) NOT NULL,
     data_nascimento DATE,
-    role VARCHAR(180) NOT NULL,
-
+    role VARCHAR(180) NOT NULL
 );
